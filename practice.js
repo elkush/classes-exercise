@@ -36,9 +36,27 @@ class HospitalEmployee {
       this.certifications.push(newCertification);
     }
   }
-  
+  class Doctor extends HospitalEmployee {
+    constructor(name, insurance) {
+        super(name);
+        this._insurance = insurance;
+    }
+    get insurance() {
+        return this._insurance;
+    }
+    addInsurance(newInsurance) {
+        this._insurance.push(newInsurance);
+    }
+  }
+  const doctorAndrei = new Doctor('Andrei', ['Bupa', 'HCF', 'NRMA']);
+  doctorAndrei.takeVacationDays(10);
+  console.log(doctorAndrei.remainingVacationDays);
+  doctorAndrei.addInsurance('Secure');
+  console.log(doctorAndrei.insurance);
+
   const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
   nurseOlynyk.takeVacationDays(5);
   console.log(nurseOlynyk.remainingVacationDays);
   nurseOlynyk.addCertification('Genetics');
   console.log(nurseOlynyk.certifications);
+
